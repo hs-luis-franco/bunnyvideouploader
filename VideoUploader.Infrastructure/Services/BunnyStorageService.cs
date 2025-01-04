@@ -60,13 +60,8 @@ namespace VideoUploader.Infrastructure.Services
 
         public async Task<bool> FinalizeUploadAsync(string guid)
         {
-            var libraryId = _configuration["BunnyNet:LibraryId"];
-            
-            var request = new HttpRequestMessage(HttpMethod.Post,
-                $"{_configuration["BunnyNet:ApiUrl"]}/videolibrary/{libraryId}/videos/{guid}/finish");
-
-            var response = await _httpClient.SendAsync(request);
-            return response.IsSuccessStatusCode;
+            // there is no endpoint to finalize the upload
+            return true;
         }
         
         public async Task<string> GetUploadUrlAsync(int uploadId)
